@@ -8,12 +8,15 @@
 
 #import "AMRootViewController.h"
 #import <MAMapKit/MAMapKit.h>
+#import <AMapSearchKit/AMapSearchAPI.h>
 
 @interface AMRootViewController ()<MAMapViewDelegate>
 @property (strong, nonatomic) MAMapView * aMapView;
 @property (strong, nonatomic) NSMutableArray * annotationMutArr;
 @property (strong, nonatomic) MAPolyline *polyLine;
 @property (strong, nonatomic) MACircle *circle;
+
+@property (strong, nonatomic) AMapSearchAPI *search;
 @end
 
 @implementation AMRootViewController
@@ -43,6 +46,9 @@
     self.aMapView.scaleOrigin = CGPointMake(CGRectGetMidX(self.view.bounds), 20.f);
 //    self.aMapView.rotateCameraEnabled = NO;
     
+    
+    self.aMapView.showsUserLocation = YES;
+    [self.aMapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
     
     MAPointAnnotation *point_1 = [[MAPointAnnotation alloc]init];
     point_1.coordinate = CLLocationCoordinate2DMake(39.911447, 116.406026);
@@ -110,6 +116,17 @@
     
     return nil;
 }
+
+-(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation
+{
+
+    
+}
+-(void)mapView:(MAMapView *)mapView didFailToLocateUserWithError:(NSError *)error
+{
+    
+}
+
 -(void)viewDidDisappear:(BOOL)animated
 {
     [self.aMapView removeAnnotations:self.annotationMutArr];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0555F7A618BB61700067B52A /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0555F7A518BB61700067B52A /* AMapSearchKit.framework */; };
 		056EB97518B752FB00EB3DE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056EB97418B752FB00EB3DE5 /* Foundation.framework */; };
 		056EB97718B752FB00EB3DE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056EB97618B752FB00EB3DE5 /* CoreGraphics.framework */; };
 		056EB97918B752FB00EB3DE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056EB97818B752FB00EB3DE5 /* UIKit.framework */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0555F7A518BB61700067B52A /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapSearchKit.framework; path = ../../../AMap_iOS_API_Lib_V2.1.3/Search/AMapSearchKit.framework; sourceTree = "<group>"; };
 		056EB97118B752FB00EB3DE5 /* AMapNaviRepo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMapNaviRepo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		056EB97418B752FB00EB3DE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		056EB97618B752FB00EB3DE5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0555F7A618BB61700067B52A /* AMapSearchKit.framework in Frameworks */,
 				056EB9BC18B7544E00EB3DE5 /* Security.framework in Frameworks */,
 				056EB9BA18B7544400EB3DE5 /* libstdc++.6.0.9.dylib in Frameworks */,
 				056EB9B818B7543600EB3DE5 /* OpenGLES.framework in Frameworks */,
@@ -138,6 +141,7 @@
 		056EB97318B752FB00EB3DE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0555F7A518BB61700067B52A /* AMapSearchKit.framework */,
 				056EB9BB18B7544E00EB3DE5 /* Security.framework */,
 				056EB9B918B7544400EB3DE5 /* libstdc++.6.0.9.dylib */,
 				056EB9B718B7543600EB3DE5 /* OpenGLES.framework */,
@@ -423,6 +427,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/mofang/Desktop/AMap_iOS_API_Lib_V2.1.3/3D,
+					/Users/mofang/Desktop/AMap_iOS_API_Lib_V2.1.3/Search,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMapNaviRepo/AMapNaviRepo-Prefix.pch";
@@ -441,6 +446,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/mofang/Desktop/AMap_iOS_API_Lib_V2.1.3/3D,
+					/Users/mofang/Desktop/AMap_iOS_API_Lib_V2.1.3/Search,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMapNaviRepo/AMapNaviRepo-Prefix.pch";
@@ -512,6 +518,7 @@
 				056EB9A518B752FB00EB3DE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		056EB9A618B752FB00EB3DE5 /* Build configuration list for PBXNativeTarget "AMapNaviRepoTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +527,7 @@
 				056EB9A818B752FB00EB3DE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

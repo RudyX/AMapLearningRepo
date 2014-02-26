@@ -17,6 +17,8 @@
 @property (strong, nonatomic) MACircle *circle;
 
 @property (strong, nonatomic) AMapSearchAPI *search;
+@property (nonatomic, strong) MAPointAnnotation *poiAnnotation;
+
 @end
 
 @implementation AMRootViewController
@@ -36,6 +38,8 @@
 	// Do any additional setup after loading the view.
     [MAMapServices sharedServices].apiKey = @"5fa045642d406d2590e5f1cdadd43652";
     
+    self.search = [[AMapSearchAPI alloc]initWithSearchKey:@"5fa045642d406d2590e5f1cdadd43652" Delegate:nil];
+    
     self.aMapView = [[MAMapView alloc]initWithFrame:self.view.bounds];
     self.aMapView.delegate = self;
 //    self.aMapView.mapType = MAMapTypeSatellite;
@@ -45,7 +49,7 @@
     self.aMapView.showsScale = YES;
     self.aMapView.scaleOrigin = CGPointMake(CGRectGetMidX(self.view.bounds), 20.f);
 //    self.aMapView.rotateCameraEnabled = NO;
-    
+    self.aMapView.touchPOIEnabled = YES;
     
     self.aMapView.showsUserLocation = YES;
     [self.aMapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
@@ -132,6 +136,37 @@
     [self.aMapView removeAnnotations:self.annotationMutArr];
     [self.aMapView removeOverlay:self.polyLine];
     
+}
+- (MAPointAnnotation *)annotationForTouchPoi:(MATouchPoi *)touchPoi
+{
+    if (touchPoi == nil)
+    {
+        return nil;
+    }
+    
+    MAPointAnnotation *annotation = [[MAPointAnnotation alloc] init];
+    
+    annotation.coordinate = touchPoi.coordinate;
+    annotation.title      = touchPoi.name;
+    
+    return annotation;
+}
+-(void)mapView:(MAMapView *)mapView didTouchPois:(NSArray *)pois
+{
+    if (pois.count == 0)
+    {
+        return;
+    }
+    
+    MAPointAnnotation *annotation = [self annotationForTouchPoi:pois[0]];
+    
+    /* Remove prior annotation. */
+    [self.aMapView removeAnnotation:self.poiAnnotation];
+    
+    [self.aMapView addAnnotation:annotation];
+    [self.aMapView selectAnnotation:annotation animated:YES];
+    
+    self.poiAnnotation = annotation;
 }
 - (void)didReceiveMemoryWarning
 {
